@@ -1,0 +1,1 @@
+enum FixtureSortOption { dateAsc, dateDesc, homeTeam, awayTeam, venue }
