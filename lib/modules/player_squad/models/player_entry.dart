@@ -1,28 +1,28 @@
 class PlayerEntry {
   final int id;
-  final String name;
-  final int age;
+  final String? name;
+  final int? age;
   final int? number;
-  final String position;
-  final String photo;
+  final String? position;
+  final String? photo;
 
   PlayerEntry({
     required this.id,
-    required this.name,
-    required this.age,
+    this.name,
+    this.age,
     this.number,
-    required this.position,
-    required this.photo,
+    this.position,
+    this.photo,
   });
 
   factory PlayerEntry.fromJson(Map<String, dynamic> json) {
     return PlayerEntry(
-      id: json['id'],
-      name: json['name'],
-      age: json['age'],
-      number: json['number'], // Nullable
-      position: json['position'],
-      photo: json['photo'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      age: json['age'] ?? 0,
+      number: json['number'] ?? 0,
+      position: json['position'] ?? '',
+      photo: json['photo'] ?? '',
     );
   }
 

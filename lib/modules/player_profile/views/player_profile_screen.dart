@@ -53,7 +53,7 @@ class PlayerProfileScreen extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(60),
                   child: CachedNetworkImage(
-                    imageUrl: player.photo,
+                    imageUrl: player.photo ?? '',
                     width: 120,
                     height: 120,
                     fit: BoxFit.cover,
@@ -67,7 +67,7 @@ class PlayerProfileScreen extends StatelessWidget {
 
                 // Name & position
                 Text(
-                  player.name,
+                  player.name ?? '',
                   style: theme.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -75,7 +75,7 @@ class PlayerProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  player.position,
+                  player.position ?? '',
                   style: theme.textTheme.titleMedium?.copyWith(
                     color: theme.colorScheme.primary,
                     fontStyle: FontStyle.italic,
@@ -87,13 +87,13 @@ class PlayerProfileScreen extends StatelessWidget {
                 const Divider(),
                 PlayerInfoTile(label: 'Age', value: '${player.age}'),
                 PlayerInfoTile(label: 'Jersey Number', value: player.number?.toString() ?? '-'),
-                PlayerInfoTile(label: 'Nationality', value: player.nationality),
-                PlayerInfoTile(label: 'Height', value: player.height),
-                PlayerInfoTile(label: 'Weight', value: player.weight),
+                PlayerInfoTile(label: 'Nationality', value: player.nationality ?? '-'),
+                PlayerInfoTile(label: 'Height', value: player.height ?? '-'),
+                PlayerInfoTile(label: 'Weight', value: player.weight ?? '-'),
                 const Divider(),
 
-                PlayerInfoTile(label: 'Birth Date', value: player.birthDate),
-                PlayerInfoTile(label: 'Birth Place', value: '${player.birthPlace}, ${player.birthCountry}'),
+                PlayerInfoTile(label: 'Birth Date', value: player.birthDate ?? '-'),
+                PlayerInfoTile(label: 'Birth Place', value: '${player.birthPlace ?? '-'}, ${player.birthCountry ?? '-'}'),
               ],
             ),
           );

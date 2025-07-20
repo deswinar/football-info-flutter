@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/modules/player_squad/models/player_entry.dart';
 import 'package:football_app/modules/players/controllers/player_controller.dart';
+import 'package:football_app/routes/app_routes.dart';
 import 'package:football_app/shared/widgets/view_state_error_widget.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -114,7 +115,7 @@ class AllPlayersScreen extends StatelessWidget {
           backgroundColor: colorScheme.surface,
           child: ClipOval(
             child: CachedNetworkImage(
-              imageUrl: player.photo,
+              imageUrl: player.photo ?? '',
               width: 56,
               height: 56,
               fit: BoxFit.cover,
@@ -126,13 +127,13 @@ class AllPlayersScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: Text(player.name, style: textTheme.titleMedium),
+        title: Text(player.name ?? '', style: textTheme.titleMedium),
         subtitle: Text(
-          '${player.position} • #${player.number ?? '-'} • Age: ${player.age}',
+          '${player.position} • #${player.number ?? '-'} • Age: ${player.age == 0 ? '-' : player.age.toString()}',
           style: textTheme.bodySmall?.copyWith(color: colorScheme.onSurfaceVariant),
         ),
         onTap: () {
-          Get.toNamed('/player-profile', arguments: {'playerId': player.id});
+          Get.toNamed(AppRoutes.playerProfile, arguments: {'playerId': player.id});
         },
       ),
     );

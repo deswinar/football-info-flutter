@@ -64,7 +64,7 @@ class PlayerSquadScreen extends StatelessWidget {
                   onTap: () => Get.toNamed(AppRoutes.playerProfile, arguments: {'playerId': player.id}),
                   leading: ClipOval(
                     child: CachedNetworkImage(
-                      imageUrl: player.photo,
+                      imageUrl: player.photo ?? '',
                       width: 48,
                       height: 48,
                       fit: BoxFit.cover,
@@ -72,7 +72,7 @@ class PlayerSquadScreen extends StatelessWidget {
                       errorWidget: (context, url, error) => const Icon(Icons.error),
                     ),
                   ),
-                  title: Text(player.name),
+                  title: Text(player.name ?? ''),
                   subtitle: Text('${player.position} • #${player.number ?? '-'}'),
                   trailing: Text('Age: ${player.age}'),
                 );
