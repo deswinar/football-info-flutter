@@ -14,7 +14,7 @@ class TeamsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchTeams(leagueId: 39, season: 2021); // default league & season
+    // fetchTeams(leagueId: 39, season: 2021); // default league & season
   }
 
   Future<void> fetchTeams({
