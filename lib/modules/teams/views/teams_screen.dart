@@ -18,6 +18,11 @@ class TeamsScreen extends StatelessWidget {
 
     final leagueId = homeController.leagueId.value;
     final season = homeController.seasonYear.value;
+
+    // Fetch only once when screen is first built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.fetchTeams(leagueId: leagueId, season: season);
+    });
     
     return Scaffold(
       appBar: AppBar(
