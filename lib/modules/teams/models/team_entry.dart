@@ -45,22 +45,22 @@ class Team {
 }
 
 class Venue {
-  final int id;
-  final String name;
-  final String address;
-  final String city;
-  final int capacity;
-  final String surface;
-  final String image;
+  final int? id;
+  final String? name;
+  final String? address;
+  final String? city;
+  final int? capacity;
+  final String? surface;
+  final String? image;
 
   Venue({
-    required this.id,
-    required this.name,
-    required this.address,
-    required this.city,
-    required this.capacity,
-    required this.surface,
-    required this.image,
+    this.id,
+    this.name,
+    this.address,
+    this.city,
+    this.capacity,
+    this.surface,
+    this.image,
   });
 
   factory Venue.fromJson(Map<String, dynamic> json) {
